@@ -1,0 +1,68 @@
+
+<my-toolbar
+    label="دفترچه تلفن">
+</my-toolbar>
+
+<mat-card *ngIf="isNewContact">
+  <mat-card-header>
+    <div class="example-title">
+      <!-- <mat-card-title>مخاطب جدید</mat-card-title> -->
+      <mat-card-subtitle></mat-card-subtitle>
+    </div>
+  </mat-card-header>
+  <div class="example-container">
+    <div class="example-input">
+      <mat-form-field>
+        <input matInput placeholder="نام" [(ngModel)]="model.username" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="نام خانوادگی" [(ngModel)]="model.lastname" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="تلفن همراه" [(ngModel)]="model.telephone" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="ایمیل" [(ngModel)]="model.email">
+      </mat-form-field>
+      <mat-form-field>
+        <textarea matInput placeholder="آدرس" [(ngModel)]="model.address"></textarea>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select placeholder="انتخاب کنید" [(ngModel)]="model.place">
+          <mat-option value="شرکت">شرکت</mat-option>
+          <mat-option value="منزل">منزل</mat-option>
+          <mat-option value="همراه">همراه</mat-option>
+          <mat-option value="سایر">سایر</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+
+    <mat-card-actions>
+        <my-button
+            [label]="mainMode == 'edit' ? 'بروزرسانی' : 'ذخیره'"
+            (click)="saveData()">
+        </my-button>
+
+        <my-button
+            label="انصراف"
+            [styles]="{'margin-right':'5px'}"
+            (click)="cancelNewContact()">
+        </my-button>
+    </mat-card-actions>
+
+</mat-card>
+
+<mat-card *ngIf="!isNewContact">
+
+  <my-table
+      [data]="dataSource"
+      [columns]="columns"
+      (onAddRow)="newContact($event)"
+      (onDeleteRow)="deleteContact($event)"
+      (onEditRow)="editContact($event)">
+  </my-table>
+
+</mat-card>
+
+

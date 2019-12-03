@@ -1,0 +1,31 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~@angular/material/theming';
+
+// Define a custom typography config that overrides the font-family as well as the
+// `headlines` and `body-1` levels.
+
+html,
+body {
+    margin: auto;
+    font-family:Iranian Sans;
+}
+
+@font-face {
+  font-family:Iranian Sans;
+  src: url("/assets/fonts/IRANSansWeb.ttf") format("truetype"),
+  url("/assets/fonts/IRANSansWeb.woff?") format("woff"),
+  url('/assets/fonts/Iranian Sans.ttf') format('truetype'); /* Saf3—5, Chrome4+, FF3.5, Opera 10+ */
+}
+
+body {
+  font-family:Iranian Sans;
+    max-width: 400px;
+
+}
+
+.IranSans {
+  font-family: BNAZANIN_0,Tahoma;
+  font-size: 15px;
+  }
